@@ -1,0 +1,142 @@
+{
+  "features": [
+    {
+      "title": "Drift Rilassato",
+      "description": "Impara l'arte del drift senza stress. Nessuna fretta, solo stile e controllo. Goditi ogni curva con calma e precisione, sviluppando la tua tecnica gradualmente.",
+      "icon": "🏎️"
+    },
+    {
+      "title": "Controllo Perfetto",
+      "description": "Sistema di controllo intuitivo che ti permette di concentrarti sulla guida. Ogni movimento è calibrato per offrire la massima precisione senza complessità inutili.",
+      "icon": "🎮"
+    },
+    {
+      "title": "Stile Urbano",
+      "description": "Esplora strade cittadine con atmosfera autentica e dettagli realistici. Ogni quartiere ha la sua personalità, dalle strade strette del centro storico ai viali ampi della periferia.",
+      "icon": "🏙️"
+    },
+    {
+      "title": "Upgrade Progressivi",
+      "description": "Sblocca nuove auto e miglioramenti gradualmente, senza pressione. Ogni upgrade è una conquista che apre nuove possibilità di drift.",
+      "icon": "🔧"
+    },
+    {
+      "title": "Modalità Libera",
+      "description": "Guida senza obiettivi, goditi il viaggio e scopri nuovi percorsi. Non ci sono scadenze o pressioni, solo la libertà di esplorare al tuo ritmo.",
+      "icon": "🛣️"
+    },
+    {
+      "title": "Comunità",
+      "description": "Condividi i tuoi momenti migliori con altri giocatori rilassati. Entra in una comunità di appassionati che condividono la tua filosofia del drift rilassato.",
+      "icon": "👥"
+    }
+  ],
+  "howto": {
+    "controls": [
+      {
+        "action": "Acceleratore",
+        "description": "Usa W o freccia su per accelerare gradualmente"
+      },
+      {
+        "action": "Freno",
+        "description": "S o freccia giù per rallentare e controllare la velocità"
+      },
+      {
+        "action": "Sterzo",
+        "description": "A/D o frecce laterali per sterzare con precisione"
+      },
+      {
+        "action": "Drift",
+        "description": "Combinazione di freno e sterzo per iniziare il drift"
+      }
+    ],
+    "tips": [
+      "Inizia lentamente e familiarizza con i controlli",
+      "Non aver fretta di imparare le tecniche avanzate",
+      "Esplora le mappe per trovare percorsi nascosti",
+      "Personalizza la tua auto secondo il tuo stile"
+    ]
+  },
+  "feedback": [
+    {
+      "name": "Marco",
+      "text": "Finalmente un gioco di guida che non mi stressa! Il drift rilassato è perfetto per staccare la spina.",
+      "rating": 5
+    },
+    {
+      "name": "Sofia",
+      "text": "Adoro l'atmosfera urbana e il fatto che posso guidare senza obiettivi. È il mio momento zen quotidiano.",
+      "rating": 5
+    },
+    {
+      "name": "Luca",
+      "text": "I controlli sono perfetti, non troppo complicati ma nemmeno banali. Giusto equilibrio per divertirsi.",
+      "rating": 4
+    },
+    {
+      "name": "Giulia",
+      "text": "Le mappe sono bellissime e ricche di dettagli. Mi piace esplorare ogni angolo della città.",
+      "rating": 5
+    }
+  ],
+  "maps": [
+    {
+      "name": "Centro Storico",
+      "description": "Strade strette e curve strette nel cuore della città. Perfetto per drift tecnici e controllati.",
+      "difficulty": "Media"
+    },
+    {
+      "name": "Periferia Industriale",
+      "description": "Aree industriali con spazi aperti e curve ampie. Ideale per drift veloci e spettacolari.",
+      "difficulty": "Facile"
+    },
+    {
+      "name": "Colline Urbane",
+      "description": "Strade di montagna con salite e discese ripide. Sfida per il controllo e la precisione.",
+      "difficulty": "Difficile"
+    },
+    {
+      "name": "Zona Portuale",
+      "description": "Moli e magazzini con percorsi complessi e ostacoli urbani. Per esperti del drift.",
+      "difficulty": "Molto Difficile"
+    }
+  ],
+  "garage": [
+    {
+      "category": "Auto",
+      "items": [
+        "GTO Classic - Auto di partenza, perfetta per imparare",
+        "Drift Master - Specializzata per drift avanzati",
+        "Street Cruiser - Equilibrio perfetto tra velocità e controllo",
+        "Urban Legend - Auto esclusiva per veri esperti"
+      ]
+    },
+    {
+      "category": "Performance",
+      "items": [
+        "Motore Potenziato - Maggiore accelerazione",
+        "Sospensioni Sportive - Migliore controllo in curva",
+        "Freni Racing - Arresto più preciso",
+        "Trasmissione Sport - Cambio più reattivo"
+      ]
+    },
+    {
+      "category": "Estetica",
+      "items": [
+        "Vinili Personalizzati - Decori unici per la tua auto",
+        "Cerchi Sportivi - Design esclusivo per le ruote",
+        "Kit Aerodinamici - Spoiler e minigonne",
+        "Illuminazione LED - Luci personalizzate"
+      ]
+    },
+    {
+      "category": "Drift",
+      "items": [
+        "Differenziale Sport - Migliore controllo del drift",
+        "Gomme Drift - Adesione ottimale per le curve",
+        "Sistema di Controllo - Assistenza personalizzabile",
+        "Modalità Drift - Impostazioni avanzate"
+      ]
+    }
+  ]
+}

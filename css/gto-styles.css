@@ -1,0 +1,2281 @@
+/* GTO Drift Styles - Lazy Speed Aesthetics */
+
+:root {
+  --burnout-smoke: #2c2c2c;
+  --gto-vibe: #1a1a1a;
+  --lazy-throttle: #f0f0f0;
+  --drift-zone: #e74c3c;
+  --parked-shadow: #34495e;
+  --idle-engine: #95a5a6;
+  --street-graffiti: #9b59b6;
+  --garage-light: #f39c12;
+  --urban-asphalt: #2c3e50;
+  --drift-smoke: rgba(0, 0, 0, 0.1);
+  --headlight-glow: #f1c40f;
+  --exhaust-smoke: rgba(255, 255, 255, 0.8);
+  --tire-mark: #7f8c8d;
+  --speed-lines: #ecf0f1;
+  --drift-angle: 15deg;
+  --lazy-transition: 0.3s ease-in-out;
+  --garage-spacing: 2rem;
+  --urban-padding: 1.5rem;
+  --drift-radius: 8px;
+  --parked-shadow-blur: 10px;
+  --error-red: #e74c3c;
+  --error-red-alpha: rgba(231, 76, 60, 0.2);
+  --error-red-alpha-strong: rgba(231, 76, 60, 0.4);
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+  --overlay-medium: rgba(0, 0, 0, 0.5);
+  --overlay-light: rgba(0, 0, 0, 0.3);
+  --overlay-strong: rgba(0, 0, 0, 0.8);
+  --overlay-very-strong: rgba(0, 0, 0, 0.9);
+  --white-alpha-light: rgba(255, 255, 255, 0.1);
+  --white-alpha-medium: rgba(255, 255, 255, 0.2);
+  --white-alpha-strong: rgba(255, 255, 255, 0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--lazy-throttle);
+  background-color: var(--gto-vibe);
+  overflow-x: hidden;
+}
+
+.gto-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.gto-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--urban-padding);
+}
+
+/* Header Styles */
+.gto-header-wrapper {
+  position: relative;
+  z-index: 1000;
+}
+
+.gto-header {
+  background: linear-gradient(
+    135deg,
+    var(--burnout-smoke),
+    var(--urban-asphalt)
+  );
+  box-shadow: 0 4px var(--parked-shadow-blur) var(--drift-smoke);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+}
+
+.gto-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.gto-logo-link {
+  text-decoration: none;
+  color: var(--headlight-glow);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: var(--lazy-transition);
+}
+
+.gto-logo-link:hover {
+  color: var(--drift-zone);
+  transform: scale(1.05);
+  text-shadow: 0 0 20px var(--headlight-glow);
+}
+
+/* Navigation Menu */
+.gto-nav {
+  background: linear-gradient(
+    135deg,
+    var(--urban-asphalt),
+    var(--burnout-smoke)
+  );
+  box-shadow: 0 4px var(--parked-shadow-blur) var(--drift-smoke);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--lazy-transition);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--white-alpha-light);
+  min-height: 60px;
+}
+
+.gto-nav.gto-nav-active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.gto-nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gto-nav-item {
+  flex-shrink: 0;
+}
+
+.gto-nav-link {
+  color: var(--exhaust-smoke);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--lazy-transition);
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: block;
+  white-space: nowrap;
+}
+
+.gto-nav-link:hover {
+  color: var(--headlight-glow);
+}
+
+.gto-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--drift-zone);
+  transition: var(--lazy-transition);
+}
+
+.gto-nav-link:hover::after {
+  width: 100%;
+}
+
+.gto-burger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+  padding: 0.5rem;
+  border-radius: var(--drift-radius);
+  transition: var(--lazy-transition);
+}
+
+.gto-burger:hover {
+  background: var(--white-alpha-light);
+}
+
+.gto-burger-active {
+  background: var(--white-alpha-medium);
+}
+
+.gto-burger-active .gto-burger-line {
+  background: var(--headlight-glow);
+}
+
+.gto-burger-line {
+  width: 25px;
+  height: 3px;
+  background: var(--exhaust-smoke);
+  transition: var(--lazy-transition);
+  border-radius: 2px;
+}
+
+/* Main Content */
+.gto-main {
+  flex: 1;
+}
+
+.gto-section {
+  padding: 4rem 0;
+}
+
+.gto-title {
+  font-size: 3.5rem;
+  color: var(--headlight-glow);
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px var(--headlight-glow);
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.gto-slogan {
+  font-size: 1.3rem;
+  color: var(--exhaust-smoke);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.gto-section-title {
+  font-size: 2.5rem;
+  color: var(--headlight-glow);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.gto-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--drift-zone);
+  border-radius: 2px;
+}
+
+/* Hero Section */
+.gto-hero {
+  background: linear-gradient(
+    135deg,
+    var(--burnout-smoke) 0%,
+    var(--urban-asphalt) 50%,
+    var(--parked-shadow) 100%
+  );
+  min-height: 70vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.gto-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="g" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/></svg>');
+  opacity: 0.2;
+}
+
+.gto-hero-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 60vh;
+  padding: 2rem 0;
+}
+
+.gto-hero-text {
+  text-align: left;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.gto-hero-text .gto-title {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+.gto-hero-text .gto-slogan {
+  text-align: left;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.gto-hero-images {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.gto-hero-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  border-radius: var(--drift-radius);
+  overflow: hidden;
+  box-shadow: 0 8px 25px var(--drift-smoke);
+  transition: var(--lazy-transition);
+}
+
+.gto-hero-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px var(--drift-zone);
+}
+
+.gto-hero-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Features Layout */
+.gto-features-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.gto-features-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+}
+
+.gto-features-right {
+  flex: 1;
+}
+
+.gto-feature-card {
+  background: linear-gradient(
+    135deg,
+    var(--parked-shadow),
+    var(--burnout-smoke)
+  );
+  padding: 1.5rem;
+  border-radius: var(--drift-radius);
+  box-shadow: 0 8px 25px var(--drift-smoke);
+  transition: var(--lazy-transition);
+  border: 1px solid var(--idle-engine);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.gto-feature-card-large {
+  height: 100%;
+}
+
+.gto-feature-card:hover {
+  box-shadow: 0 15px 35px var(--drift-zone);
+  border-color: var(--drift-zone);
+}
+
+.gto-feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.gto-feature-title {
+  font-size: 1.3rem;
+  color: var(--headlight-glow);
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.gto-feature-description {
+  color: var(--exhaust-smoke);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* How to Play */
+.gto-howto-content {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.gto-controls-section,
+.gto-tips-section {
+  flex: 1;
+  background: linear-gradient(
+    135deg,
+    var(--parked-shadow),
+    var(--burnout-smoke)
+  );
+  padding: 2.5rem;
+  border-radius: var(--drift-radius);
+  box-shadow: 0 8px 25px var(--drift-smoke);
+  border: 1px solid var(--idle-engine);
+  transition: var(--lazy-transition);
+}
+
+.gto-controls-section:hover,
+.gto-tips-section:hover {
+  box-shadow: 0 15px 35px var(--drift-zone);
+  border-color: var(--drift-zone);
+}
+
+.gto-controls-section h3,
+.gto-tips-section h3 {
+  color: var(--headlight-glow);
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--drift-zone);
+  padding-bottom: 1rem;
+}
+
+.gto-control-item,
+.gto-tip-item {
+  background: var(--urban-asphalt);
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: var(--drift-radius);
+  border-left: 4px solid var(--drift-zone);
+  transition: var(--lazy-transition);
+  position: relative;
+}
+
+.gto-control-item:hover,
+.gto-tip-item:hover {
+  background: var(--burnout-smoke);
+  transform: translateX(5px);
+}
+
+.gto-control-item:last-child,
+.gto-tip-item:last-child {
+  margin-bottom: 0;
+}
+
+.gto-control-action {
+  color: var(--headlight-glow);
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.gto-control-description {
+  color: var(--exhaust-smoke);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Feedback Grid */
+.gto-feedback-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.gto-feedback-card {
+  background: linear-gradient(
+    135deg,
+    var(--parked-shadow),
+    var(--burnout-smoke)
+  );
+  padding: 2.5rem;
+  border-radius: var(--drift-radius);
+  flex: 0 1 calc(50% - 1rem);
+  min-width: 350px;
+  max-width: 500px;
+  box-shadow: 0 8px 25px var(--drift-smoke);
+  transition: var(--lazy-transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--idle-engine);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gto-feedback-card::before {
+  content: '"';
+  position: absolute;
+  top: -15px;
+  left: 25px;
+  font-size: 5rem;
+  color: var(--drift-zone);
+  opacity: 0.2;
+  font-family: serif;
+}
+
+.gto-feedback-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px var(--drift-zone);
+  border-color: var(--drift-zone);
+}
+
+.gto-feedback-name {
+  color: var(--headlight-glow);
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+  border-bottom: 2px solid var(--drift-zone);
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gto-feedback-text {
+  color: var(--exhaust-smoke);
+  line-height: 1.8;
+  font-style: italic;
+  font-size: 1.1rem;
+  text-align: left;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+}
+
+/* Maps Background */
+.gto-maps-background {
+  background-image: url("../assets/gto-hero-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: var(--drift-radius);
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.gto-maps-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--overlay-dark),
+    var(--overlay-medium)
+  );
+  z-index: 1;
+}
+
+.gto-maps-background .gto-container {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2rem;
+}
+
+.gto-maps-background .gto-section-title {
+  color: var(--headlight-glow);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* Maps Content */
+.gto-maps-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.gto-map-card {
+  background: var(--overlay-strong);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: var(--drift-radius);
+  flex: 0 1 calc(50% - 1rem);
+  min-width: 300px;
+  max-width: 500px;
+  box-shadow: 0 8px 25px var(--overlay-light);
+  transition: var(--lazy-transition);
+  border: 2px solid var(--white-alpha-light);
+  position: relative;
+}
+
+.gto-map-card:hover {
+  transform: scale(1.02);
+  border-color: var(--drift-zone);
+  box-shadow: 0 15px 35px var(--overlay-medium);
+}
+
+.gto-map-name {
+  color: var(--headlight-glow);
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gto-map-description {
+  color: var(--exhaust-smoke);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.gto-map-difficulty {
+  color: var(--drift-zone);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 0.8rem 1.5rem;
+  background: var(--white-alpha-light);
+  border-radius: 25px;
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+/* Garage Background */
+.gto-garage-background {
+  background-image: url("../assets/gto-hero-2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: var(--drift-radius);
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.gto-garage-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--overlay-dark),
+    var(--overlay-medium)
+  );
+  z-index: 1;
+}
+
+.gto-garage-background .gto-container {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2rem;
+}
+
+/* Garage Layout */
+.gto-garage-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.gto-garage-text {
+  flex: 1;
+  max-width: 50%;
+}
+
+.gto-garage-title {
+  color: var(--headlight-glow);
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.gto-garage-description {
+  color: var(--exhaust-smoke);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.gto-garage-subdescription {
+  color: var(--exhaust-smoke);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: left;
+  opacity: 0.9;
+}
+
+/* Garage Card */
+.gto-garage-card {
+  flex: 1;
+  max-width: 50%;
+  background: var(--overlay-strong);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: var(--drift-radius);
+  box-shadow: 0 8px 25px var(--overlay-light);
+  border: 2px solid var(--white-alpha-light);
+  transition: var(--lazy-transition);
+}
+
+.gto-garage-card:hover {
+  transform: scale(1.02);
+  border-color: var(--drift-zone);
+  box-shadow: 0 15px 35px var(--overlay-medium);
+}
+
+.gto-garage-card-title {
+  color: var(--headlight-glow);
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--drift-zone);
+  padding-bottom: 1rem;
+}
+
+.gto-garage-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gto-garage-category-item {
+  padding: 1rem;
+  background: var(--white-alpha-light);
+  border-radius: 10px;
+  border: 1px solid var(--white-alpha-light);
+  transition: var(--lazy-transition);
+}
+
+.gto-garage-category-item:hover {
+  background: var(--white-alpha-light);
+  border-color: var(--drift-zone);
+  transform: translateX(5px);
+}
+
+.gto-garage-category-item h4 {
+  color: var(--drift-zone);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gto-garage-category-item p {
+  color: var(--exhaust-smoke);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Legacy Garage Styles (for JSON content) */
+.gto-garage-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.gto-garage-category {
+  background: linear-gradient(
+    135deg,
+    var(--parked-shadow),
+    var(--burnout-smoke)
+  );
+  padding: 2rem;
+  border-radius: var(--drift-radius);
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  box-shadow: 0 8px 25px var(--drift-smoke);
+  transition: var(--lazy-transition);
+}
+
+.gto-garage-category:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px var(--drift-zone);
+}
+
+.gto-category-title {
+  color: var(--headlight-glow);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid var(--drift-zone);
+  padding-bottom: 0.5rem;
+}
+
+.gto-category-items {
+  list-style: none;
+}
+
+.gto-category-item {
+  color: var(--exhaust-smoke);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--idle-engine);
+  transition: var(--lazy-transition);
+}
+
+.gto-category-item:hover {
+  color: var(--headlight-glow);
+  padding-left: 10px;
+}
+
+/* Contact Styles */
+.gto-contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.gto-contact-info,
+.gto-contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.gto-contact-details {
+  background: linear-gradient(
+    135deg,
+    var(--parked-shadow),
+    var(--burnout-smoke)
+  );
+  padding: 2rem;
+  border-radius: var(--drift-radius);
+  box-shadow: 0 8px 25px var(--drift-smoke);
+}
+
+.gto-contact-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--urban-asphalt);
+  border-radius: var(--drift-radius);
+  border-left: 4px solid var(--drift-zone);
+}
+
+.gto-contact-label {
+  color: var(--headlight-glow);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.gto-contact-value {
+  color: var(--exhaust-smoke);
+}
+
+/* Form Styles */
+.gto-form {
+  background: linear-gradient(
+    135deg,
+    var(--parked-shadow),
+    var(--burnout-smoke)
+  );
+  padding: 2rem;
+  border-radius: var(--drift-radius);
+  box-shadow: 0 8px 25px var(--drift-smoke);
+}
+
+.gto-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.gto-form-label {
+  display: block;
+  color: var(--headlight-glow);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.gto-form-input,
+.gto-form-textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--urban-asphalt);
+  border: 2px solid var(--idle-engine);
+  border-radius: var(--drift-radius);
+  color: var(--exhaust-smoke);
+  font-size: 1rem;
+  transition: var(--lazy-transition);
+}
+
+.gto-form-input:focus,
+.gto-form-textarea:focus {
+  outline: none;
+  border-color: var(--drift-zone);
+  box-shadow: 0 0 10px var(--drift-zone);
+}
+
+.gto-form-btn {
+  background: linear-gradient(45deg, var(--drift-zone), var(--street-graffiti));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: var(--drift-radius);
+  cursor: pointer;
+  transition: var(--lazy-transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.gto-form-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--drift-zone);
+}
+
+/* Form Error Styles */
+.gto-form-input.error,
+.gto-form-textarea.error {
+  border-color: var(--drift-zone);
+  box-shadow: 0 0 0 2px var(--error-red-alpha);
+}
+
+.gto-form-error {
+  color: var(--drift-zone);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Map Section */
+.gto-map-container {
+  border-radius: var(--drift-radius);
+  overflow: hidden;
+  box-shadow: 0 8px 25px var(--drift-smoke);
+}
+
+.gto-map {
+  border-radius: var(--drift-radius);
+}
+
+/* Footer Styles */
+.gto-footer {
+  background: linear-gradient(
+    135deg,
+    var(--burnout-smoke),
+    var(--urban-asphalt)
+  );
+  padding: 3rem 0 1rem;
+  margin-top: auto;
+}
+
+.gto-footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+.gto-footer-section {
+  width: 100%;
+  max-width: 400px;
+}
+
+.gto-footer-subtitle {
+  color: var(--headlight-glow);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.gto-footer-text,
+.gto-footer-contact {
+  color: var(--exhaust-smoke);
+  margin-bottom: 0.5rem;
+}
+
+.gto-footer-links {
+  list-style: none;
+}
+
+.gto-footer-link {
+  color: var(--exhaust-smoke);
+  text-decoration: none;
+  transition: var(--lazy-transition);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.gto-footer-link:hover {
+  color: var(--headlight-glow);
+  transform: translateX(5px);
+}
+
+.gto-footer-bottom {
+  border-top: 1px solid var(--idle-engine);
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.gto-copyright {
+  color: var(--exhaust-smoke);
+}
+
+/* Legal Pages */
+.gto-legal-content {
+  background: linear-gradient(
+    135deg,
+    var(--parked-shadow),
+    var(--burnout-smoke)
+  );
+  padding: 2rem;
+  border-radius: var(--drift-radius);
+  box-shadow: 0 8px 25px var(--drift-smoke);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gto-legal-content h2 {
+  color: var(--headlight-glow);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.gto-legal-content h3 {
+  color: var(--drift-zone);
+  margin: 1.5rem 0 1rem;
+  font-size: 1.3rem;
+}
+
+.gto-legal-content p {
+  color: var(--exhaust-smoke);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.gto-legal-content ul {
+  color: var(--exhaust-smoke);
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.gto-legal-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Updates Background */
+.gto-updates-background {
+  background-image: url("../assets/gto-hero-3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: var(--drift-radius);
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.gto-updates-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--overlay-dark),
+    var(--overlay-medium)
+  );
+  z-index: 1;
+}
+
+.gto-updates-background .gto-container {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2rem;
+}
+
+.gto-updates-background .gto-section-title {
+  color: var(--headlight-glow);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* News Styles */
+.gto-updates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gto-update-card {
+  background: var(--overlay-strong);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: var(--drift-radius);
+  box-shadow: 0 8px 25px var(--overlay-light);
+  transition: var(--lazy-transition);
+  border: 2px solid var(--white-alpha-light);
+  position: relative;
+}
+
+.gto-update-card:hover {
+  transform: scale(1.02);
+  border-color: var(--drift-zone);
+  box-shadow: 0 15px 35px var(--overlay-medium);
+}
+
+.gto-update-title {
+  color: var(--headlight-glow);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--drift-zone);
+  padding-bottom: 1rem;
+}
+
+.gto-update-date {
+  color: var(--drift-zone);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  background: var(--white-alpha-light);
+  border-radius: 20px;
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.gto-update-description {
+  color: var(--exhaust-smoke);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+/* Street Diaries Styles */
+.gto-diaries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gto-diary-card {
+  background: linear-gradient(
+    135deg,
+    var(--overlay-very-strong),
+    var(--overlay-strong)
+  );
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px var(--overlay-light);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid var(--white-alpha-light);
+  position: relative;
+}
+
+.gto-diary-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 60px var(--overlay-medium);
+  border-color: var(--drift-zone);
+}
+
+.gto-diary-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border: 2px solid var(--drift-zone);
+}
+
+.gto-diary-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gto-diary-card:hover .gto-diary-image img {
+  transform: scale(1.1);
+}
+
+.gto-diary-content {
+  padding: 2rem;
+}
+
+.gto-diary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gto-diary-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.gto-diary-title {
+  color: var(--headlight-glow);
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.gto-diary-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.gto-diary-author {
+  color: var(--drift-zone);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gto-diary-date {
+  color: var(--idle-engine);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.gto-diary-story {
+  color: var(--exhaust-smoke);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.gto-diary-location {
+  color: var(--street-graffiti);
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gto-diary-location::before {
+  content: "📍";
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .gto-container {
+    max-width: 1000px;
+  }
+
+  .gto-title {
+    font-size: 3rem;
+  }
+
+  .gto-section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Street Diaries Responsive */
+@media (min-width: 1024px) {
+  .gto-diaries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .gto-diaries-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gto-section {
+    padding: 3rem 0;
+  }
+
+  .gto-hero {
+    min-height: 60vh;
+  }
+
+  .gto-hero-content {
+    min-height: 50vh;
+    padding: 1.5rem 0;
+  }
+
+  .gto-hero-text .gto-title {
+    font-size: 3rem;
+  }
+
+  .gto-hero-text .gto-slogan {
+    font-size: 1.2rem;
+  }
+
+  .gto-hero-images {
+    gap: 1rem;
+  }
+
+  .gto-hero-image {
+    min-width: 280px;
+    max-width: 350px;
+  }
+
+  .gto-hero-image img {
+    height: 200px;
+  }
+
+  .gto-features-layout {
+    gap: 1.5rem;
+  }
+
+  .gto-features-left {
+    gap: 1.5rem;
+  }
+
+  .gto-feature-card {
+    padding: 1.3rem;
+  }
+
+  .gto-feature-icon {
+    font-size: 2.3rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .gto-feature-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .gto-feature-description {
+    font-size: 0.92rem;
+  }
+
+  .gto-feedback-grid {
+    gap: 1.8rem;
+  }
+
+  .gto-feedback-card {
+    padding: 2.2rem;
+    flex: 0 1 calc(50% - 0.9rem);
+  }
+
+  .gto-feedback-name {
+    font-size: 1.25rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .gto-feedback-text {
+    font-size: 0.98rem;
+  }
+
+  .gto-maps-background {
+    margin: 0 1.5rem;
+  }
+
+  .gto-maps-background .gto-container {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .gto-garage-background {
+    margin: 0 1.5rem;
+  }
+
+  .gto-garage-background .gto-container {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .gto-updates-background {
+    margin: 0 1.5rem;
+  }
+
+  .gto-updates-background .gto-container {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .gto-diary-card {
+    margin: 0 1rem;
+  }
+
+  .gto-diary-content {
+    padding: 1.5rem;
+  }
+
+  .gto-diary-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .gto-diary-title-section {
+    width: 100%;
+  }
+
+  .gto-diary-meta {
+    align-items: flex-start;
+  }
+
+  .gto-diary-title {
+    font-size: 1.2rem;
+  }
+
+  .gto-diary-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .gto-garage-layout {
+    gap: 2rem;
+  }
+
+  .gto-garage-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .gto-garage-description {
+    font-size: 1.1rem;
+  }
+
+  .gto-garage-subdescription {
+    font-size: 1rem;
+  }
+
+  .gto-maps-content {
+    gap: 1.8rem;
+  }
+
+  .gto-map-card {
+    padding: 2.2rem;
+  }
+
+  .gto-map-name {
+    font-size: 1.5rem;
+  }
+
+  .gto-map-description {
+    font-size: 1rem;
+  }
+
+  .gto-howto-content {
+    gap: 1.8rem;
+  }
+
+  .gto-controls-section,
+  .gto-tips-section {
+    padding: 2.2rem;
+  }
+
+  .gto-controls-section h3,
+  .gto-tips-section h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gto-section {
+    padding: 2rem 0;
+  }
+
+  .gto-nav-list {
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .gto-nav-link {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+
+  .gto-hero {
+    min-height: 50vh;
+  }
+
+  .gto-hero-content {
+    padding: 1rem 0;
+    min-height: 40vh;
+  }
+
+  .gto-hero-text {
+    margin-bottom: 1.5rem;
+  }
+
+  .gto-hero-text .gto-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .gto-hero-text .gto-slogan {
+    font-size: 1.1rem;
+  }
+
+  .gto-hero-images {
+    gap: 0.8rem;
+  }
+
+  .gto-hero-image {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .gto-hero-image img {
+    height: 180px;
+  }
+
+  .gto-title {
+    font-size: 2.5rem;
+  }
+
+  .gto-section-title {
+    font-size: 1.8rem;
+  }
+
+  .gto-features-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .gto-features-left {
+    gap: 1.5rem;
+  }
+
+  .gto-feature-card {
+    min-height: auto;
+    padding: 1.2rem;
+  }
+
+  .gto-feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .gto-feature-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .gto-feature-description {
+    font-size: 0.9rem;
+  }
+
+  .gto-howto-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .gto-controls-section,
+  .gto-tips-section {
+    padding: 2rem;
+  }
+
+  .gto-controls-section h3,
+  .gto-tips-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .gto-control-item,
+  .gto-tip-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .gto-control-action {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .gto-control-description {
+    font-size: 0.9rem;
+  }
+
+  .gto-feedback-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .gto-feedback-card {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 2rem;
+    flex: 1 1 100%;
+  }
+
+  .gto-feedback-name {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .gto-feedback-text {
+    font-size: 0.95rem;
+  }
+
+  .gto-maps-background {
+    margin: 0 1rem;
+  }
+
+  .gto-maps-background .gto-container {
+    padding: 2rem 1rem;
+  }
+
+  .gto-garage-background {
+    margin: 0 1rem;
+  }
+
+  .gto-garage-background .gto-container {
+    padding: 2rem 1rem;
+  }
+
+  .gto-updates-background {
+    margin: 0 1rem;
+  }
+
+  .gto-updates-background .gto-container {
+    padding: 2rem 1rem;
+  }
+
+  .gto-diary-card {
+    margin: 0 0.5rem;
+  }
+
+  .gto-diary-content {
+    padding: 1rem;
+  }
+
+  .gto-diary-title {
+    font-size: 1.1rem;
+  }
+
+  .gto-diary-story {
+    font-size: 0.95rem;
+  }
+
+  .gto-diary-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  .gto-diary-title-section {
+    gap: 0.8rem;
+  }
+
+  .gto-diary-header {
+    margin-bottom: 1rem;
+  }
+
+  .gto-diary-story {
+    margin-bottom: 1rem;
+  }
+
+  .gto-diary-content {
+    padding: 0.8rem;
+  }
+
+  .gto-diary-header {
+    margin-bottom: 0.8rem;
+  }
+
+  .gto-diary-story {
+    margin-bottom: 0.8rem;
+  }
+
+  .gto-diary-title {
+    font-size: 1rem;
+  }
+
+  .gto-diary-story {
+    font-size: 0.9rem;
+  }
+
+  .gto-updates-grid {
+    gap: 1.5rem;
+  }
+
+  .gto-garage-layout {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .gto-garage-text {
+    max-width: 100%;
+  }
+
+  .gto-garage-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .gto-garage-description {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .gto-garage-subdescription {
+    font-size: 0.95rem;
+  }
+
+  .gto-garage-card {
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  .gto-garage-card-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .gto-garage-categories {
+    gap: 1.2rem;
+  }
+
+  .gto-garage-category-item {
+    padding: 0.8rem;
+  }
+
+  .gto-garage-category-item h4 {
+    font-size: 1.1rem;
+  }
+
+  .gto-garage-category-item p {
+    font-size: 0.9rem;
+  }
+
+  .gto-maps-content,
+  .gto-garage-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gto-map-card,
+  .gto-garage-category {
+    min-width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .gto-contact-grid {
+    flex-direction: column;
+  }
+
+  .gto-footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .gto-section {
+    padding: 1.5rem 0;
+  }
+
+  .gto-hero {
+    min-height: 45vh;
+  }
+
+  .gto-hero-content {
+    padding: 0.8rem 0;
+    min-height: 35vh;
+  }
+
+  .gto-hero-text .gto-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .gto-hero-text .gto-slogan {
+    font-size: 1rem;
+  }
+
+  .gto-hero-images {
+    gap: 0.6rem;
+  }
+
+  .gto-hero-image img {
+    height: 150px;
+  }
+
+  .gto-maps-background {
+    margin: 0 0.5rem;
+  }
+
+  .gto-maps-background .gto-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .gto-garage-background {
+    margin: 0 0.5rem;
+  }
+
+  .gto-garage-background .gto-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .gto-updates-background {
+    margin: 0 0.5rem;
+  }
+
+  .gto-updates-background .gto-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .gto-garage-layout {
+    gap: 1.5rem;
+  }
+
+  .gto-garage-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .gto-garage-description {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .gto-garage-subdescription {
+    font-size: 0.9rem;
+  }
+
+  .gto-garage-card {
+    padding: 1.8rem;
+  }
+
+  .gto-garage-card-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .gto-garage-categories {
+    gap: 1rem;
+  }
+
+  .gto-garage-category-item {
+    padding: 0.7rem;
+  }
+
+  .gto-garage-category-item h4 {
+    font-size: 1rem;
+  }
+
+  .gto-garage-category-item p {
+    font-size: 0.85rem;
+  }
+
+  .gto-maps-content {
+    gap: 1.2rem;
+  }
+
+  .gto-map-card {
+    padding: 1.8rem;
+  }
+
+  .gto-map-name {
+    font-size: 1.3rem;
+  }
+
+  .gto-map-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .gto-container {
+    padding: 0 1rem;
+  }
+
+  .gto-title {
+    font-size: 2rem;
+  }
+
+  .gto-slogan {
+    font-size: 1rem;
+  }
+
+  .gto-hero {
+    min-height: 40vh;
+  }
+
+  .gto-hero-content {
+    padding: 0.5rem 0;
+    min-height: 30vh;
+  }
+
+  .gto-hero-text .gto-title {
+    font-size: 1.6rem;
+  }
+
+  .gto-hero-text .gto-slogan {
+    font-size: 0.9rem;
+  }
+
+  .gto-hero-image img {
+    height: 120px;
+  }
+
+  .gto-maps-background {
+    margin: 0 0.3rem;
+  }
+
+  .gto-maps-background .gto-container {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .gto-garage-background {
+    margin: 0 0.3rem;
+  }
+
+  .gto-garage-background .gto-container {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .gto-updates-background {
+    margin: 0 0.3rem;
+  }
+
+  .gto-updates-background .gto-container {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .gto-garage-layout {
+    gap: 1.2rem;
+  }
+
+  .gto-garage-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .gto-garage-description {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .gto-garage-subdescription {
+    font-size: 0.85rem;
+  }
+
+  .gto-garage-card {
+    padding: 1.5rem;
+  }
+
+  .gto-garage-card-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .gto-garage-categories {
+    gap: 0.8rem;
+  }
+
+  .gto-garage-category-item {
+    padding: 0.6rem;
+  }
+
+  .gto-garage-category-item h4 {
+    font-size: 0.95rem;
+  }
+
+  .gto-garage-category-item p {
+    font-size: 0.8rem;
+  }
+
+  .gto-maps-content {
+    gap: 1rem;
+  }
+
+  .gto-map-card {
+    padding: 1.5rem;
+  }
+
+  .gto-map-name {
+    font-size: 1.2rem;
+  }
+
+  .gto-map-description {
+    font-size: 0.9rem;
+  }
+
+  .gto-feature-card {
+    padding: 1rem;
+  }
+
+  .gto-feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gto-feature-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gto-feature-description {
+    font-size: 0.85rem;
+  }
+
+  .gto-feedback-grid {
+    gap: 1.2rem;
+  }
+
+  .gto-feedback-card {
+    padding: 1.5rem;
+    flex: 1 1 100%;
+  }
+
+  .gto-feedback-name {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .gto-feedback-text {
+    font-size: 0.9rem;
+  }
+
+  .gto-howto-content {
+    gap: 1.2rem;
+  }
+
+  .gto-controls-section,
+  .gto-tips-section {
+    padding: 1.5rem;
+  }
+
+  .gto-controls-section h3,
+  .gto-tips-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .gto-control-item,
+  .gto-tip-item {
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .gto-control-action {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gto-control-description {
+    font-size: 0.85rem;
+  }
+
+  .gto-feedback-card,
+  .gto-map-card,
+  .gto-garage-category,
+  .gto-update-card,
+  .gto-diary-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Animations */
+@keyframes gto-drift {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(10px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes gto-smoke {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.gto-garage-category:hover {
+  animation: gto-drift 0.6s ease-in-out;
+}
+
+/* Loading Animation */
+.gto-loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--idle-engine);
+  border-radius: 50%;
+  border-top-color: var(--drift-zone);
+  animation: gto-spin 1s ease-in-out infinite;
+}
+
+@keyframes gto-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cookie Banner Styles */
+.gto-cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    135deg,
+    var(--burnout-smoke),
+    var(--urban-asphalt)
+  );
+  border-top: 2px solid var(--drift-zone);
+  box-shadow: 0 -4px var(--parked-shadow-blur) var(--drift-smoke);
+  z-index: 9999;
+  padding: 1.5rem var(--urban-padding);
+  backdrop-filter: blur(10px);
+  transform: translateY(100%);
+  transition: var(--lazy-transition);
+}
+
+.gto-cookie-banner.gto-cookie-show {
+  transform: translateY(0);
+}
+
+.gto-cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.gto-cookie-text {
+  flex: 1;
+  color: var(--exhaust-smoke);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.gto-cookie-text strong {
+  color: var(--headlight-glow);
+  font-weight: 600;
+}
+
+.gto-cookie-actions {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.gto-cookie-btn {
+  background: linear-gradient(135deg, var(--drift-zone), var(--parked-shadow));
+  color: var(--lazy-throttle);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--drift-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--lazy-transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px var(--error-red-alpha-strong);
+}
+
+.gto-cookie-btn:hover {
+  background: linear-gradient(135deg, var(--parked-shadow), var(--drift-zone));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--error-red-alpha-strong);
+}
+
+.gto-cookie-btn:active {
+  transform: translateY(0);
+}
+
+/* Cookie Banner Responsive */
+@media (max-width: 768px) {
+  .gto-cookie-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .gto-cookie-text {
+    font-size: 0.9rem;
+  }
+
+  .gto-cookie-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gto-cookie-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gto-cookie-banner {
+    padding: 1rem var(--urban-padding);
+  }
+
+  .gto-cookie-text {
+    font-size: 0.85rem;
+  }
+
+  .gto-cookie-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
