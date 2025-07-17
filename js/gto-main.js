@@ -60,11 +60,13 @@ function updateCopyrightYear() {
 function setupBurgerMenu() {
   const burger = document.getElementById("gto-burger");
   const nav = document.getElementById("gto-nav");
+  const overlay = document.getElementById("gto-overlay");
 
-  if (burger && nav) {
+  if (burger && nav && overlay) {
     burger.addEventListener("click", function () {
       nav.classList.toggle("gto-nav-active");
       burger.classList.toggle("gto-burger-active");
+      overlay.classList.toggle("gto-overlay-active");
 
       // Animate burger lines
       const lines = burger.querySelectorAll(".gto-burger-line");
@@ -88,32 +90,35 @@ function setupBurgerMenu() {
     const navLinks = nav.querySelectorAll(".gto-nav-link");
     navLinks.forEach((link) => {
       link.addEventListener("click", function () {
-        nav.classList.remove("gto-nav-active");
-        burger.classList.remove("gto-burger-active");
-
-        // Reset burger lines
-        const lines = burger.querySelectorAll(".gto-burger-line");
-        lines.forEach((line, index) => {
-          line.style.transform = "none";
-          line.style.opacity = "1";
-        });
+        closeMenu();
       });
+    });
+
+    // Close menu when clicking on overlay
+    overlay.addEventListener("click", function () {
+      closeMenu();
     });
 
     // Close menu when clicking outside
     document.addEventListener("click", function (event) {
       if (!burger.contains(event.target) && !nav.contains(event.target)) {
-        nav.classList.remove("gto-nav-active");
-        burger.classList.remove("gto-burger-active");
-
-        // Reset burger lines
-        const lines = burger.querySelectorAll(".gto-burger-line");
-        lines.forEach((line, index) => {
-          line.style.transform = "none";
-          line.style.opacity = "1";
-        });
+        closeMenu();
       }
     });
+
+    // Function to close menu
+    function closeMenu() {
+      nav.classList.remove("gto-nav-active");
+      burger.classList.remove("gto-burger-active");
+      overlay.classList.remove("gto-overlay-active");
+
+      // Reset burger lines
+      const lines = burger.querySelectorAll(".gto-burger-line");
+      lines.forEach((line, index) => {
+        line.style.transform = "none";
+        line.style.opacity = "1";
+      });
+    }
   }
 }
 

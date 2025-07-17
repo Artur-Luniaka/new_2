@@ -68,7 +68,7 @@ body {
 /* Header Styles */
 .gto-header-wrapper {
   position: relative;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .gto-header {
@@ -118,7 +118,7 @@ body {
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 10001;
   transform: translateY(-100%);
   opacity: 0;
   visibility: hidden;
@@ -2169,6 +2169,33 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Overlay Styles */
+.gto-overlay {
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 120px);
+  background: var(--overlay-strong);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--lazy-transition);
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+}
+
+.gto-overlay.gto-overlay-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.gto-overlay.gto-overlay-active {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Cookie Banner Styles */
